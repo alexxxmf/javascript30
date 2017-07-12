@@ -7,5 +7,6 @@ window.addEventListener('keypress', function(event){
 	*/
 	if (event.keyCode == 97){
 		console.log(event);
+		var element = document.querySelector('[data-key="97"]')
 	}
 });
