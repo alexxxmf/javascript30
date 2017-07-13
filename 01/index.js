@@ -7,6 +7,12 @@ window.addEventListener('keydown', function(event){
 	}
 	audioElement.currentTime = 0
 	audioElement.play()
-	keyElement.classList.add('pushed')
+	keyElement.classList.add('playing')
+
+})
+
+window.addEventListener('keyup', function(event){
+	var keyElement = document.querySelector('.key[data-key=\"' + event.keyCode + '\"]');
+	keyElement.classList.remove('playing')
 
 })
