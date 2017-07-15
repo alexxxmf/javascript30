@@ -24,7 +24,7 @@ function setDate(){
 	minuteHand.style.transform = "rotate(" + minuteDegrees + "deg)"
 
 	var hour = date.getHours()
-	var hourDegrees = ((hour/24) * 360) + 90
+	var hourDegrees = ((hour/12) * 360) + 90
 	var hourHand = document.querySelector('.hourHand')
 	hourHand.style.transform = "rotate(" + hourDegrees + "deg)"
 
