@@ -12,6 +12,10 @@ https://stackoverflow.com/questions/729921/settimeout-or-setinterval
 function setDate(){
 	var date = new Date
 	console.log(date)
+	var second = date.getSeconds()
+	var minute = date.getMinutes()
+	var hour = date.getHours()
+	
 }
 
 setInterval(setDate, 1000)
