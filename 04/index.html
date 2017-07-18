@@ -94,13 +94,7 @@
     people.sort(function(lastOne, nextOne){
       var [aFirst, aLast] = lastOne.split(', ')
       var [bFirst, bLast] = nextOne.split(', ')
-      if (aLast > bLast){
-        return -1
-      }
-
-      else{
-        return 1
-      }
+      return aLast > bLast ? -1 : 1;
     })
     // 8. Reduce Exercise
     // Sum up the instances of each of these
