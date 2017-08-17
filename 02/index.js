@@ -16,17 +16,17 @@ function setDate(){
 	var second = date.getSeconds()
 	var secondDegrees = ((second/60) * 360) + 90
 	var secondHand = document.querySelector('.secondHand')
-	secondHand.style.transform = "rotate(" + secondDegrees + "deg)"
+	secondHand.style.transform = `rotate(${secondDegrees}deg)`
 
 	var minute = date.getMinutes()
 	var minuteDegrees = ((minute/60) * 360) + 90
 	var minuteHand = document.querySelector('.minuteHand')
-	minuteHand.style.transform = "rotate(" + minuteDegrees + "deg)"
+	minuteHand.style.transform = `rotate(${minuteDegrees}deg)`
 
 	var hour = date.getHours()
 	var hourDegrees = ((hour/12) * 360) + 90
 	var hourHand = document.querySelector('.hourHand')
-	hourHand.style.transform = "rotate(" + hourDegrees + "deg)"
+	hourHand.style.transform = `rotate(${hourDegrees}deg)`
 
 }
 
