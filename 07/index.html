@@ -30,6 +30,19 @@
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
+
+    const currentYear = ((new Date()).getFullYear())
+    const isAdult = people.some(function(person){
+      if ((currentYear - person.year) > 18){
+        return true;
+      }
+    })
+    const allAdults = people.every(function(person){
+      if ((currentYear - person.year) > 18){
+        return true;
+      }
+    })
+
   </script>
 </body>
 </html>
