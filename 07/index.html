@@ -37,11 +37,17 @@
         return true;
       }
     })
+
     const allAdults = people.every(function(person){
       if ((currentYear - person.year) > 18){
         return true;
       }
     })
+
+    const comment = comments.find(function(comment){
+      return comment.id === 823423;
+    })
+
 
   </script>
 </body>
