@@ -48,6 +48,10 @@
       return comment.id === 823423;
     })
 
+    const index = comments.findIndex(function(comment){
+      return comment.id === 823423;
+    })
+    const newComments = comments.splice(index, 1)
 
   </script>
 </body>
