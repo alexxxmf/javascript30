@@ -35,8 +35,22 @@
     })
   }
 
-  function displayMatches(){
-    const matchArray = findMatches(this.value, cities)
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function displayMatches() {
+    const matchArray = findMatches(this.value, cities);
+    const html = matchArray.map(function(place){
+
+      return `
+        <li>
+          <span class="name">${place.state}, ${place.city}</span>
+          <span class="population">${numberWithCommas(place.population)}</span>
+        </li>
+      `;
+    }).join('');
+    suggestions.innerHTML = html;
   }
 
   const inputSearch = document.querySelector('.search');
