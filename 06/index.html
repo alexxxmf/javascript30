@@ -41,11 +41,21 @@
 
   function displayMatches() {
     const matchArray = findMatches(this.value, cities);
+
+    // https://stackoverflow.com/questions/34361379/arrow-function-vs-function-declaration-expressions-are-they-equivalent-exch
+    // Important thing to note if we opt for using or not
+    // arrow functions and how it could affect to 'this'
+    // 1. Arrow function: this will point to inputSearch
+    // 2. Regular function: this will point to window
+    // If we opt for the arrow functions change inputSearch.value to this.value
     const html = matchArray.map(function(place){
+      const regex = new RegExp(inputSearch.value, 'gi');
+      const cityName = place.city.replace(regex, `<span class="hl">${inputSearch.value}</span>`);
+      const stateName = place.state.replace(regex, `<span class="hl">${inputSearch.value}</span>`);
 
       return `
         <li>
-          <span class="name">${place.state}, ${place.city}</span>
+          <span class="name">${cityName}, ${stateName}</span>
           <span class="population">${numberWithCommas(place.population)}</span>
         </li>
       `;
