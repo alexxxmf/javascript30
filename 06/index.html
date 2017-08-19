@@ -28,9 +28,22 @@
       cities.push(...array)
     })
 
-  cities.filter(function(city){
-    return city.state == "New York";
-  })
+  function findMatches(wordToMatch, cities){
+    return cities.filter(function(place){
+      const regex = new RegExp(wordToMatch, 'gi');
+      return place.city.match(regex) || place.state.match(regex);
+    })
+  }
+
+  function displayMatches(){
+    const matchArray = findMatches(this.value, cities)
+  }
+
+  const inputSearch = document.querySelector('.search');
+  const suggestions = document.querySelector('.suggestions');
+
+  inputSearch.addEventListener('change', displayMatches);
+  inputSearch.addEventListener('keyup', displayMatches);
 
 </script>
   </body>
