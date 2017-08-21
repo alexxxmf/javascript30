@@ -90,8 +90,37 @@
 
   const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]')
 
+  let lastChecked;
+
   function handleCheck(e){
-    console.log(e);
+    let inBetween = false;
+
+    if(this.checked && e.shiftKey){
+      let self = this;
+      console.log('==============')
+      console.log(lastChecked)
+      checkboxes.forEach(function(checkbox){
+
+        if (checkbox === self || checkbox === lastChecked) {
+          inBetween = !inBetween;
+          console.log('STarting to check them inbetween!');
+        }
+        if (inBetween) {
+          checkbox.checked = true;
+        }
+        
+      });
+    }
+    // BEWARE here. We were using again let and
+    // lastChecked appear within function as not defined
+    // WHY????!!!!!
+    // Possible reason?
+    /*
+    We destroy value in variable after getting out of the function by declaring it again within the function
+    */
+    lastChecked = this;
+    console.log(lastChecked);
+
   }
 
   checkboxes.forEach(function(checkbox){
