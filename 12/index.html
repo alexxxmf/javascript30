@@ -12,7 +12,10 @@
 	window.addEventListener('keyup', function(e){
 		console.log(e);
 		pressedKeys.push(e.key);
-
+		pressedKeys.splice(-secretKey.length - 1, pressedKeys.length - secretKey.length)
+		if (pressedKeys.join('').includes(secretKey)) {
+		    cornify_add();
+		}
 	})
 
 </script>
