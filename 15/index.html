@@ -37,7 +37,18 @@
       'text': text,
       'done': false,
     }
+    items.push(item);
+    populateList(items);
     this.reset();
+  }
+
+  function populateList(items){
+    itemsList.innerHTML = items.map(function(item, i){
+      return `<li>
+        <input type="checkbox" data-index=${i} id="item${i}" checked>
+        <label for="items${i}">${item.text}</label>
+      </li>`;
+    }).join('')
   }
 
   addItems.addEventListener('submit', addItem);
