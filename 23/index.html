@@ -51,8 +51,27 @@
     })
   }
 
+  function toggle(startOver = true) {
+    speechSynthesis.cancel();
+    if (startOver) {
+      speechSynthesis.speak(msg);
+    }
+  }
+
+  function setOption(){
+    msg[this.name] = this.value;
+    toggle();
+  }
+
   speechSynthesis.addEventListener('voiceschanged', populateVoices);
   voicesDropdown.addEventListener('change', setVoice);
+  options.forEach(function(option){
+    option.addEventListener('change', setOption);
+  })
+  speakButton.addEventListener('click', toggle);
+  stopButton.addEventListener('click', function(){
+    toggle(false);
+  })
 
 </script>
 
