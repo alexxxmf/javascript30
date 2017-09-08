@@ -49,10 +49,15 @@
 
     function logText(e){
       console.log(this.classList.value);
+      // e.stopPropagation();
+      // console.log(this);
     }
 
     divs.forEach(function(div){
-      div.addEventListener('click', logText)
+      div.addEventListener('click', logText, {
+        capture: false,
+        once: true
+      });
     })
   </script>
 
