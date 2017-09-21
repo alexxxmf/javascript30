@@ -66,6 +66,15 @@
 
   }
 
+  function startGame() {
+    scoreBoard.textContent = 0;
+    tipeUp = false;
+    peep();
+    setTimeout(function(){
+      timeUp = true
+    }, 2000)
+  }
+
 </script>
 </body>
 </html>
